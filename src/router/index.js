@@ -8,17 +8,18 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    // name: "Home",
+    name: "Home",
     component: Home,
   },
   {
     path: "/beer/:id",
-    // name: "Beer",
+    name: "Beer",
     component: Beer,
   },
 ];
 
 const router = new VueRouter({
+  base: "https://darabosg.github.io/punk_beer/",
   mode: "history",
   routes,
 });
