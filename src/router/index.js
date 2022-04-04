@@ -19,8 +19,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  base: "https://darabosg.github.io/punk_beer/",
-  mode: "history",
+  // mode: "history",
   routes,
 });
 
