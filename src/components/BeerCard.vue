@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "BeerCard",
   props: ["beer"],
   data: () => ({}),
 };
