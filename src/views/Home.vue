@@ -1,18 +1,66 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div v-if="beers">
+      <v-pagination
+        v-model="page"
+        :length="13"
+        :total-visible="7"
+        @input="pageChange"
+      />
+      <v-container>
+        <v-row align-content="space-evenly">
+          <BeerCard v-for="beer in beers" :key="beer.id" :beer="beer" />
+        </v-row>
+      </v-container>
+      <v-pagination
+        v-model="page"
+        :length="13"
+        :total-visible="7"
+        @input="pageChange"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import axios from "axios";
+import BeerCard from "@/components/BeerCard.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    BeerCard,
+  },
+  data() {
+    return {
+      beers: null,
+      page: 1,
+    };
+  },
+  mounted() {
+    axios
+      .get(`https://api.punkapi.com/v2/beers?page=${this.page}`)
+      .then((res) => {
+        console.log(res);
+        this.beers = res.data;
+      })
+      .catch((err) => console.log(err));
+  },
+  updated() {
+    console.log(this.beers);
+    console.log(this.page);
+  },
+  methods: {
+    pageChange: function () {
+      // this.page = value;
+      axios
+        .get(`https://api.punkapi.com/v2/beers?page=${this.page}`)
+        .then((res) => {
+          console.log(res);
+          this.beers = res.data;
+        })
+        .catch((err) => console.log(err));
+    },
   },
 };
 </script>
