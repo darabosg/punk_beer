@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="6">
+  <v-col cols="4">
     <v-card class="d-flex pa-6" height="250">
       <div class="d-flex flex-grow-1 flex-shrink-0" style="max-width: 100%">
         <v-img :src="beer.image_url" height="200" max-width="80" contain />

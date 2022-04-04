@@ -9,7 +9,7 @@
       />
       <v-container>
         <v-row align-content="space-evenly">
-          <BeerCard v-for="beer in beers" :key="beer.id" :beer="beer" />
+          <beer-card v-for="beer in beers" :key="beer.id" :beer="beer" />
         </v-row>
       </v-container>
       <v-pagination
