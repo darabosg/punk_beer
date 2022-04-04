@@ -2,6 +2,7 @@
   <div class="home">
     <div v-if="beers">
       <v-pagination
+        class="mb-12 mt-12"
         v-model="page"
         :length="13"
         :total-visible="7"
@@ -13,6 +14,7 @@
         </v-row>
       </v-container>
       <v-pagination
+        class="mb-12 mt-12"
         v-model="page"
         :length="13"
         :total-visible="7"

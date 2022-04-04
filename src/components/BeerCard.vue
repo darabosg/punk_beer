@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="4">
+  <v-col cols="12" sm="6" lg="4">
     <v-card class="d-flex pa-6" height="250">
       <div class="d-flex flex-grow-1 flex-shrink-0" style="max-width: 100%">
         <v-img :src="beer.image_url" height="200" max-width="80" contain />
@@ -12,7 +12,9 @@
             <v-card-subtitle>{{ beer.tagline }}</v-card-subtitle>
           </div>
 
-          <v-btn color="green" small class="align-self-end">More</v-btn>
+          <v-btn color="green" small class="align-self-end" @click="toBeerPage">
+            More
+          </v-btn>
         </div>
       </div>
     </v-card>
@@ -24,5 +26,10 @@ export default {
   name: "BeerCard",
   props: ["beer"],
   data: () => ({}),
+  methods: {
+    toBeerPage: function () {
+      this.$router.push(`beer/${this.beer.id}`);
+    },
+  },
 };
 </script>
