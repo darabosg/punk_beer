@@ -9,7 +9,7 @@
         @input="pageChange"
       />
       <v-container>
-        <v-row align-content="space-evenly">
+        <v-row>
           <beer-card v-for="beer in beers" :key="beer.id" :beer="beer" />
         </v-row>
       </v-container>
@@ -43,18 +43,12 @@ export default {
     axios
       .get(`https://api.punkapi.com/v2/beers?page=${this.page}`)
       .then((res) => {
-        console.log(res);
         this.beers = res.data;
       })
       .catch((err) => console.log(err));
   },
-  updated() {
-    console.log(this.beers);
-    console.log(this.page);
-  },
   methods: {
     pageChange: function () {
-      // this.page = value;
       axios
         .get(`https://api.punkapi.com/v2/beers?page=${this.page}`)
         .then((res) => {

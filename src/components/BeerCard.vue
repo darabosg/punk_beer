@@ -28,7 +28,7 @@ export default {
   data: () => ({}),
   methods: {
     toBeerPage: function () {
-      this.$router.push(`beer/${this.beer.id}`);
+      this.$router.push({ path: `beer/${this.beer.id}` });
     },
   },
 };
